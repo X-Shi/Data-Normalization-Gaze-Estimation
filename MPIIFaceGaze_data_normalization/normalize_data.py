@@ -169,7 +169,7 @@ if __name__ == '__main__':
             values = line.strip().split(' ')
             annotations_dict[values[0]] = values
         # print(subject)
-        with open('/home/xiangwei/PycharmProjects/technical_report/MPIIFaceGaze/Evaluation Subset/sample list for eye image' + '/' + subject + '.txt') as txtfile:
+        with open('path_to_your/Evaluation Subset/sample list for eye image' + '/' + subject + '.txt') as txtfile:
             # total_num = len(txtfile.readlines())
             # print(total_num)
             output_h5_face = group_subject.create_group('image')
