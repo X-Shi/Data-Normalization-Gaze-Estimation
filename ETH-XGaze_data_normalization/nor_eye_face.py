@@ -15,7 +15,7 @@ import io
 from datetime import datetime
 
 data_dir = '/tudelft.net/staff-umbrella/NightId/eth-xgaze/raw'
-output_dir = '/tudelft.net/staff-umbrella/NightId/eth-xgaze/raw/multi-region_3_5/train'
+output_dir = '/tudelft.net/staff-umbrella/NightId/eth-xgaze/raw/multi-region/train'
 
 def draw_gaze(image_in, pos, pitchyaw, length=40.0, thickness=1, color=(0, 0, 255)):
 	"""Draw gaze angle on given image with a given eye positions."""
@@ -304,7 +304,6 @@ if __name__ == '__main__':
 				hr = np.array([float(line[7]), float(line[8]), float(line[9])]).reshape(3, 1)
 				ht = np.array([float(line[10]), float(line[11]), float(line[12])]).reshape(3, 1)
 
-
 				# face image
 				face_img_normalized, head_norm, gaze_norm, landmark_norm, mat_norm_face = \
 					normalizeData_face(image, face_model, landmarks, hr, ht, gaze_label_3d, camera_matrix[cam_id], focal_norm = 960, distance_norm = 600, size = patch_size)
@@ -312,12 +311,6 @@ if __name__ == '__main__':
 				# eye images
 				data_normal_eyes = normalizeData_eyes(image, face_model, hr, ht, gaze_label_3d, camera_matrix[cam_id], focal_norm = 1800, distance_norm = 343, size = patch_size)
 				[[left_eye_img, hr_norm_left, gc_normalized_left, R_left], [right_eye_img, hr_norm_right, gc_normalized_right, R_right]] = data_normal_eyes
-
-				data_tight_eyes = normalizeData_eyes(image, face_model, hr, ht, gaze_label_3d, camera_matrix[cam_id], focal_norm = 2400, distance_norm = 350, size = patch_size)
-				[[left_eye_img_tight, _, _, _], [right_eye_img_tight, _, _, _]] = data_tight_eyes
-
-				data_loose_eyes = normalizeData_eyes(image, face_model, hr, ht, gaze_label_3d, camera_matrix[cam_id], focal_norm = 1500, distance_norm = 350, size = patch_size)
-				[[left_eye_img_loose, _, _, _], [right_eye_img_loose, _, _, _]] = data_loose_eyes
 
 				# create the hdf5 file
 				if not output_frame_index:
@@ -338,21 +331,8 @@ if __name__ == '__main__':
 																	chunks=(1, patch_size, patch_size, 3))
 					output_right_eye_patch = output_h5_id.create_dataset("right_eye_patch", shape=(total_data, patch_size, patch_size, 3),
 																	compression='lzf', dtype=np.uint8,
-																	chunks=(1, patch_size, patch_size, 3))	
-					output_left_eye_patch_tight = output_h5_id.create_dataset("left_eye_patch_tight", shape=(total_data, patch_size, patch_size, 3),
-																	compression='lzf', dtype=np.uint8,
-																	chunks=(1, patch_size, patch_size, 3))
-					output_right_eye_patch_tight = output_h5_id.create_dataset("right_eye_patch_tight", shape=(total_data, patch_size, patch_size, 3),
-																	compression='lzf', dtype=np.uint8,
-																	chunks=(1, patch_size, patch_size, 3))
-					output_left_eye_patch_loose = output_h5_id.create_dataset("left_eye_patch_loose", shape=(total_data, patch_size, patch_size, 3),
-																	compression='lzf', dtype=np.uint8,
-																	chunks=(1, patch_size, patch_size, 3))
-					output_right_eye_patch_loose = output_h5_id.create_dataset("right_eye_patch_loose", shape=(total_data, patch_size, patch_size, 3),
-																	compression='lzf', dtype=np.uint8,
 																	chunks=(1, patch_size, patch_size, 3))																						  
 
-					
 					output_face_mat_norm = output_h5_id.create_dataset("face_mat_norm", shape=(total_data, 3, 3),
 																   dtype=np.float, chunks=(1, 3, 3))
 					output_face_gaze = output_h5_id.create_dataset("face_gaze", shape=(total_data, 2),
@@ -369,18 +349,11 @@ if __name__ == '__main__':
 				output_cam_index[save_index] = cam_id
 
 				output_landmarks[save_index] = landmark_norm
-				# output_head_rvec[save_index] = hr.reshape(3)
-				# output_head_tvec[save_index] = ht.reshape(3)
 				output_face_patch[save_index] = face_img_normalized
 
 				# save eye images
 				output_left_eye_patch[save_index] = left_eye_img
 				output_right_eye_patch[save_index] = right_eye_img
-				output_left_eye_patch_tight[save_index] = left_eye_img_tight
-				output_right_eye_patch_tight[save_index] = right_eye_img_tight
-				output_left_eye_patch_loose[save_index] = left_eye_img_loose
-				output_right_eye_patch_loose[save_index] = right_eye_img_loose
-
 
 				output_face_mat_norm[save_index] = mat_norm_face
 				output_face_gaze[save_index] = gaze_norm_2d.reshape(2)
