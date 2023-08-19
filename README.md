@@ -4,9 +4,10 @@ This is a repository for the code used to generate input data for the paper *Inv
 This repository contains code for normalizing ETH-XGaze, MPIIFaceGaze, and Gaze360 datasets with single face in resolutions of 224x224 and 448x448, and multi-region crops of face and two eyes for resolution 224x224.
 The separate code for different datasets can be found in individual folders. 
 
-We refer to the paper ['Revisiting Data Normalization for Appearance-Based Gaze Estimation'](https://www.perceptualui.org/publications/zhang18_etra.pdf) for data normalization. The updated code for that paper can be found [here](https://github.com/xucong-zhang/data-preprocessing-gaze).
+We refer to the paper ['Revisiting Data Normalization for Appearance-Based Gaze Estimation'](https://www.perceptualui.org/publications/zhang18_etra.pdf) for data normalization in the gaze estimation task. An updated code for that paper can be found [here](https://github.com/xucong-zhang/data-preprocessing-gaze). We also re-used the part of the code from [ETH-XGze repository](https://github.com/xucong-zhang/ETH-XGaze).
 
-If you use the results, pre-trained models, or method, please cite our arXiv paper: 'TODO' our arXiv paper citation.
+If you use the results, pre-trained models, or method from our arXiv paper, please cite it as: 
+'TODO' our arXiv paper citation.
 
 If you only use the data normalization part, please cite the data normalization paper:
 ```
