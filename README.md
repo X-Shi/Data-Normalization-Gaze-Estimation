@@ -5,3 +5,16 @@ This repository contains code for normalizing ETH-XGaze, MPIIFaceGaze, and Gaze3
 The separate code for different datasets can be found in individual folders. 
 
 We refer to the paper ['Revisiting Data Normalization for Appearance-Based Gaze Estimation'](https://www.perceptualui.org/publications/zhang18_etra.pdf) for data normalization. The updated code for that paper can be found [here](https://github.com/xucong-zhang/data-preprocessing-gaze).
+
+If you use the results, pre-trained models, or method, please cite our arXiv paper: 'TODO' our arXiv paper citation.
+
+If you only use the data normalization part, please cite the data normalization paper:
+```
+@inproceedings{zhang2018revisiting,
+  title={Revisiting data normalization for appearance-based gaze estimation},
+  author={Zhang, Xucong and Sugano, Yusuke and Bulling, Andreas},
+  booktitle={Proceedings of the 2018 ACM symposium on eye tracking research \& applications},
+  pages={1--9},
+  year={2018}
+}
+```
