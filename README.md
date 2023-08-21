@@ -6,6 +6,12 @@ The separate code for different datasets can be found in individual folders.
 
 We refer to the paper ['Revisiting Data Normalization for Appearance-Based Gaze Estimation'](https://www.perceptualui.org/publications/zhang18_etra.pdf) for data normalization in the gaze estimation task. An updated code for that paper can be found [here](https://github.com/xucong-zhang/data-preprocessing-gaze). We also re-used the part of the code from [ETH-XGze repository](https://github.com/xucong-zhang/ETH-XGaze) and [FAZE repository](https://github.com/NVlabs/few_shot_gaze).
 
+
+## Attention
+**The coordinate system of the gaze labels of the [original MPIIFaceGaze dataset](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/gaze-based-human-computer-interaction/its-written-all-over-your-face-full-face-appearance-based-gaze-estimation) is different from our data normalization repository. The coordinate system in our data normalization repository is aligned with the one in [ETH-XGaze dataset](https://ait.ethz.ch/xgaze).
+The difference between the two coordinate systems is that the pitch and yaw directions are opposite from the corresponding ones.**
+
+## Citation
 If you use the results, pre-trained models, or method from our arXiv paper, please cite it as: 
 ```
 @misc{wang2023investigation,
