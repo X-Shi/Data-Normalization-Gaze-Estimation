@@ -10,5 +10,5 @@ To use the codes, please run:\
 Please obtain the datasets through these links: [MPIIFaceGaze](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/gaze-based-human-computer-interaction/its-written-all-over-your-face-full-face-appearance-based-gaze-estimation) and [MPIIGaze](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/gaze-based-human-computer-interaction/appearance-based-gaze-estimation-in-the-wild).
 
 #### **Notice**
-**The coordinate system of the gaze labels of the provided normalized data is different from the one from our data normalization repository. The coordinate system in our data normalization repository is aligned with the one in ETH-XGaze dataset.
+**The coordinate system of the gaze labels of the [provided normalized data](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/gaze-based-human-computer-interaction/its-written-all-over-your-face-full-face-appearance-based-gaze-estimation) is different from the one from our data normalization repository. The coordinate system in our data normalization repository is aligned with the one in ETH-XGaze dataset.
 The difference between two coordinate systems is that the pitch and yaw directions are opposite from the corresponding ones.**
